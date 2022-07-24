@@ -7,14 +7,16 @@ class PortariaTest {
     @Test
     @DisplayName("Scenarios tests from portaria func")
     fun testPortaria(){
-        Assertions.assertAll(
-            {Assertions.assertEquals(portaria(Data().underAge,"comum", "xt"), Data().deny)},
-            {Assertions.assertEquals(portaria(Data().upperAge,"", "xt"), Data().deny)},
-            {Assertions.assertEquals(portaria(Data().upperAge,"VIP", "xt"), Data().deny)},
-            {Assertions.assertEquals(portaria(Data().upperAge,"comum", ""), Data().deny)},
-            {Assertions.assertEquals(portaria(Data().upperAge,"comum", "xt"), Data().allow)},
-            {Assertions.assertEquals(portaria(Data().upperAge,"luxo", "xl"), Data().allow)},
-            {Assertions.assertEquals(portaria(Data().upperAge,"comum", "aaas"), Data().deny)}
-        )
+        with(Data()) {
+            Assertions.assertAll(
+                { Assertions.assertEquals(portaria(underAge, "comum", "xt"), deny) },
+                { Assertions.assertEquals(portaria(upperAge, "", "xt"), deny) },
+                { Assertions.assertEquals(portaria(upperAge, "VIP", "xt"), deny) },
+                { Assertions.assertEquals(portaria(upperAge, "comum", ""), deny) },
+                { Assertions.assertEquals(portaria(upperAge, "comum", "xt"), allow) },
+                { Assertions.assertEquals(portaria(upperAge, "luxo", "xl"), allow) },
+                { Assertions.assertEquals(portaria(upperAge, "comum", "aaas"), deny) }
+            )
+        }
     }
 }

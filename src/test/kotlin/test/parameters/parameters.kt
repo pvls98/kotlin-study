@@ -1,6 +1,6 @@
 package test.parameters
 
-class Data(){
+class Data{
     // Portaria Messages
     val deny = "Negado."
     val allow = "Welcome."
