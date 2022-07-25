@@ -7,7 +7,7 @@ class PortariaTest {
     @Test
     @DisplayName("Scenarios tests from portaria func")
     fun testPortaria(){
-        with(Data()) {
+        with(Data) {
             Assertions.assertAll(
                 { Assertions.assertEquals(portaria(underAge, "comum", "xt"), deny) },
                 { Assertions.assertEquals(portaria(upperAge, "", "xt"), deny) },
